@@ -24,7 +24,7 @@ const $contacts = $("#contacts");
 //   .catch((error) => console.error("Error:", error));
 
 //console.log("soy users", users);
-$contacts.innerHTML = `<li>${"hola"}</li>`;
+//$contacts.innerHTML = `<li>${"hola"}</li>`;
 let users = [
   {
     id: 1,
@@ -86,6 +86,40 @@ let users = [
     ],
   },
 ];
+const sortmessages = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    array[i].whatsapp.sort((a, b) => a.timestamp - b.timestamp);
+  }
+  array.sort(
+    (a, b) =>
+      b.whatsapp[b.whatsapp.length - 1].timestamp -
+      a.whatsapp[a.whatsapp.length - 1].timestamp
+  );
+  return array;
+};
+let test = true;
+let checked = (e) => {
+  let status = e.whatsapp[e.whatsapp.length - 1].status;
+  switch (status) {
+    case "delivered":
+      return "<i data-lucide=check class=text-[#82929b] stroke-1 h-7></i>";
+    case "read":
+      return "<i data-lucide=check-check class=text-green-400 stroke-1></i>";
+    default:
+      return "";
+  }
+};
+
+users = sortmessages([...users]);
+console.log("im sorte users", users);
 users.map((e) => {
-  $contacts.innerHTML = `<li>${e.name}</li>`;
+  $contacts.innerHTML += `<li class="text-white bg-[#121b21] h-[72px]">
+                           <div class= "text-xl font-extralight">${e.name}</div>
+                           <div class="flex justify-start items-center gap-1">
+                            ${checked(e)}
+                            <span class="text-sm">${
+                              e.whatsapp[e.whatsapp.length - 1].message
+                            }
+                           </div>
+                          </li>`;
 });
