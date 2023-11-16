@@ -10,3 +10,17 @@
 }
 
 
+
+.listContacts__image--checked-two{
+  stroke-width: 1px;
+  color:#38e54d;
+  
+}
+
+.listContacts__image--checked-one{
+  color: #82929b;
+  stroke-width: 1px;
+}
+
+
+

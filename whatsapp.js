@@ -53,7 +53,7 @@ let users = [
         id: 4,
         message: "hola",
         name: "Franco Vedia",
-        status: "received",
+        status: "delivered",
         whatsapp_id:
           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
         timestamp: "1700092673",
@@ -78,7 +78,7 @@ let users = [
         id: 6,
         message: "hola1",
         name: "Mindqube",
-        status: "read",
+        status: "sent",
         whatsapp_id:
           "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABEYEkVDQ0IxREY5QjM5NjUwOTUzRgA=",
         timestamp: "1700092753",
@@ -102,9 +102,11 @@ let checked = (e) => {
   let status = e.whatsapp[e.whatsapp.length - 1].status;
   switch (status) {
     case "delivered":
-      return "<i data-lucide=check class=text-[#82929b] stroke-1 h-7></i>";
+      return "<i data-lucide=check class=listContacts__image--checked-one ></i>";
     case "read":
-      return "<i data-lucide=check-check class=text-green-400 stroke-1></i>";
+      return "<i data-lucide=check-check class=listContacts__image--checked-two></i>";
+    case "sent":
+      return "<i data-lucide=check-check class=listContacts__image--checked-one></i>";
     default:
       return "";
   }
@@ -113,11 +115,11 @@ let checked = (e) => {
 users = sortmessages([...users]);
 console.log("im sorte users", users);
 users.map((e) => {
-  $contacts.innerHTML += `<li class="text-white bg-[#121b21] h-[72px]">
+  $contacts.innerHTML += `<li class="text-white bg-[#121b21] h-[72px] flex flex-col justify-center">
                            <div class= "text-xl font-extralight">${e.name}</div>
                            <div class="flex justify-start items-center gap-1">
                             ${checked(e)}
-                            <span class="text-sm">${
+                            <span class="text-sm text-[#82929b]">${
                               e.whatsapp[e.whatsapp.length - 1].message
                             }
                            </div>
