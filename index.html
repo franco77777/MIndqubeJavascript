@@ -23,14 +23,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="flex max-h-screen min-h-screen ">
-      <div class="w-[44rem] flex flex-col overflow-x-hidden">
-       <h1 class="bg-red-500 min-h-[59px] ">Mindqube Whatsapp</h1>
+    <main class="flex max-h-screen min-h-screen overflow-hidden ">
+      <div class="min-w-[22rem] flex flex-col overflow-x-hidden border-r-[2px] border-[#2a3942]">
+       <div class="bg-[#202c33] flex items-center justify-center min-h-[59px] gap-2">
+        <img src="/mindqube_logo.png" alt="" class="w-10 h-10">
+        <div class="text-white text-xl" id="mindqube">mindqube</div>
+       </div>
        <div class="bg-[#121b21] h-[49px] ">
-        <!-- <div class="m-1 px-2 ">
-        <input type="text" id="searcher" class="w-full h-8 rounded-lg">
-        <label for="searcher" class="text-black">look for a chat</label>
-        </div> -->
         <div class="m-1 px-2 ">
         <div class="relative z-0 bg-[#202c33] rounded-lg ">
           <i data-lucide="search " class="absolute left-3 top-2 w-5 text-[#82929b] pointer-events-none"></i>
@@ -39,11 +38,11 @@
         </div>
       </div>
        </div>
-       <ul class="w-full h-full overflow-y-auto flex flex-col bg-[#121b21] " id="contacts">
+       <ul class="w-full h-full overflow-y-auto flex flex-col bg-[#121b21] " id="list-contacts">
        </ul>
       </div> 
       <div class="flex flex-col w-full min-h-screen">
-       <header class="bg-orange-600 w-full min-h-[59px] ">title</header>
+       <header class="bg-[#202c33] w-full min-h-[59px] " id="header"></header>
        <div class="bg-blue-500 w-full h-full overflow-y-auto ">
        </div>
        <div class="w-full bg-green-500 min-h-[59px]"></div>

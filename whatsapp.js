@@ -1,5 +1,11 @@
 const $ = (selector) => document.querySelector(selector);
-const $contacts = $("#contacts");
+const $all = (selector) => document.querySelectorAll(selector);
+const $listContacts = $("#list-contacts");
+
+const $header = $("#header");
+const $mindqube = $("#mindqube");
+
+let messages = null;
 
 //////////////////////////////CONTACTS LOGIC///////////////////////////////////////
 // var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
@@ -123,19 +129,42 @@ const previewMessage = (e) => {
   }
 };
 
+function bindingFunction() {
+  document.getElementsByName("login").onclick = function () {
+    alert("blah");
+    //     Your code
+  };
+}
+
 users = sortmessages([...users]);
 console.log("im sorte users", users);
+const setMessages = (e) => {
+  console.log("gola");
+  console.log(e.currentTarget.test);
+};
 users.map((e) => {
-  $contacts.innerHTML += `<li class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer ">
-                           <i data-lucide=user-circle-2 class=imageprofile></i>
-                           <div class=listContacts__border--bottom>
-                            <div class= "text-xl font-light">${e.name}</div>
-                            <div class="flex justify-start items-center gap-1">
-                             ${checked(e)}
-                             <span class="text-sm text-[#82929b]">
-                              ${previewMessage(e)}
-                             </span>
-                            </div>
-                           </div>
-                          </li>`;
+  $listContacts.innerHTML += `<li name=contact${
+    e.id
+  } id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
+     <i data-lucide=user-circle-2 class=imageprofile></i>
+     <div class=listContacts__border--bottom>
+      <div class= "text-lg font-normal">${e.name}</div>
+      <div class="flex justify-start items-center gap-1">
+       ${checked(e)}
+       <span class="text-sm text-[#82929b]">
+        ${previewMessage(e)}
+       </span>
+      </div>
+     </div>
+    </li>`;
+  $(`[name='contact${e.id}']`).test = "test";
 });
+const $contact = $all("#contact-id");
+$contact.forEach((e) => e.addEventListener("click", setMessages));
+
+$header.innerHTML = `<div class=text-white>HOLA</div>`;
+
+////////////////////////////////////////////////MESSAGES LOGIC/////////////////////////////////
+
+//const $contacts = $all("[name='contact']");
+//$contacts.forEach((e) => e.addEventListener("click", setMessages));
