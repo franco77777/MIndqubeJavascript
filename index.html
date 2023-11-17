@@ -46,7 +46,7 @@
         <!-- //////////////////////////////////HEADER/////////////////////////////// -->
        <header class="bg-[#202c33] w-full min-h-[59px] flex gap-3 items-center " id="header">
         <div class="hidden" id="icon-header">
-          <i data-lucide="user-circle-2" class="imageprofile ml-2 " ></i>
+          <i data-lucide="user-circle-2" class="imageprofile ml-2 text-[#adbac1] " ></i>
         </div>
         
         <div id="header-div">
@@ -55,14 +55,21 @@
         
        </header>
        <div class=" w-full h-full text-white overflow-y-auto bg-[#0a141a]" id="body-messages">
-         
+        
        </div>
-       <div class="w-full bg-green-500 min-h-[59px]"></div>
+       <div class="w-full bg-[#202c33] min-h-[59px] relative flex items-center" id="chat">
+        
+        <input type="text" id="chat-floating" class="block w-full text-sm mx-2 text-gray-900 bg-[#2a3942] border-0  appearance-none  focus:outline-none focus:ring-0  peer rounded-xl" placeholder=" " />
+        <label for="chat-floating" class="absolute pointer-events-none text-[#82929b] duration-300 transform  left-10 top-4.3 z-10 origin-[0] peer-focus:start-0      peer-focus:translate-x-[120rem]  ">Write a message</label>
+        <div id="sendMessage" class=" cursor-pointer mr-2">
+        <i data-lucide="send-horizontal" class="w-9 h-9 text-[#adbac1]" ></i>
+      </div>
+        
+       </div>
       </div>
     </main>
-    <template id="template-icon">
-      <i data-lucide=user-circle-2 class=imageprofile></i>
-    </template>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>    
 <script src="whatsapp.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
   <script>

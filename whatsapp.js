@@ -7,31 +7,30 @@ const $mindqube = $("#mindqube");
 const $bodyMessages = $("#body-messages");
 const $iconHeader = $("#icon-header");
 const $divHeader = $("#header-div");
+const $inputChat = $("#chat-floating");
+const $sendMessage = $("#sendMessage");
 
 //////////////////////////////CONTACTS LOGIC///////////////////////////////////////
-// var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
-//var data = { username: "example" };
+var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
 // fetch(url, {
-//   method: "GET", // or 'PUT'
-//   //body: JSON.stringify(data), // data can be `string` or {object}!
-//   // headers: {
-//   //   "Content-Type": "application/json",
-//   // },
+//   method: "GET",
 // })
 //   .then((res) => res.json())
 //   .then((res) => {
 //     console.log("im fetch res", res);
 //     return res;
 //   })
-//   //   .then((res) =>
-//   //     res ? sortmessages(res) : console.log("empty fetch useEffect")
-//   //   )
+//   .then((res) =>
+//     res ? sortmessages(res) : console.log("empty fetch useEffect")
+//   )
 //   .then((res) => (users = res))
+//   .then((res) => setContactsList(res))
 
 //   .catch((error) => console.error("Error:", error));
 
 //console.log("soy users", users);
 //$contacts.innerHTML = `<li>${"hola"}</li>`;
+let chatMessages = null;
 let users = [
   {
     id: 1,
@@ -138,13 +137,44 @@ function bindingFunction() {
 }
 
 users = sortmessages([...users]);
-const fragment = document.createDocumentFragment();
-const template = document.querySelector("#template-icon").content;
 
 const setMessages = (e) => {
   setHeader(e);
-  setBody(e);
+  setBodyChat(e);
 };
+
+let valueTest = null;
+const setContactsList = (usersList) => {
+  $listContacts.innerHTML = "";
+  usersList.map((e) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<li name=contact id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
+       <i data-lucide=user-circle-2 class="imageprofile text-[#adbac1]"></i>
+       <div class=listContacts__border--bottom>
+        <div class= "text-lg font-normal">${e.name}</div>
+        <div class="flex justify-start items-center gap-1">
+         ${checked(e)}
+         <span class="text-sm text-[#82929b]">
+          ${previewMessage(e)}
+         </span>
+        </div>
+       </div>
+      </li>`;
+    //$(`[name='contact${e.id}']`).test = "test";
+    li.addEventListener("click", () => setMessages(e));
+    $listContacts.appendChild(li);
+  });
+};
+
+setContactsList(users);
+// const $contact = $all("#contact-id");
+// $contact.forEach((e) => e.addEventListener("click", setMessages));
+
+////////////////////////////////////////////////CHAT LOGIC/////////////////////////////////
+
+//const $contacts = $all("[name='contact']");
+//$contacts.forEach((e) => e.addEventListener("click", setMessages));
+
 const setHeader = (e) => {
   $iconHeader.classList.remove("hidden");
   $divHeader.innerHTML = `
@@ -153,7 +183,8 @@ const setHeader = (e) => {
     <span class="text-xs text-[#82929b]">${e.timestamp}</span>
     </div>`;
 };
-const setBody = (user) => {
+const setBodyChat = (user) => {
+  chatMessages = user;
   $bodyMessages.innerHTML = "";
   user.whatsapp.map((e, i) => {
     $bodyMessages.innerHTML += `
@@ -169,29 +200,106 @@ const setBody = (user) => {
   });
 };
 
-let valueTest = null;
-users.map((e) => {
-  const li = document.createElement("li");
-  li.innerHTML = `<li name=contact id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
-     <i data-lucide=user-circle-2 class=imageprofile></i>
-     <div class=listContacts__border--bottom>
-      <div class= "text-lg font-normal">${e.name}</div>
-      <div class="flex justify-start items-center gap-1">
-       ${checked(e)}
-       <span class="text-sm text-[#82929b]">
-        ${previewMessage(e)}
-       </span>
-      </div>
-     </div>
-    </li>`;
-  //$(`[name='contact${e.id}']`).test = "test";
-  li.addEventListener("click", () => setMessages(e));
-  $listContacts.appendChild(li);
-});
-// const $contact = $all("#contact-id");
-// $contact.forEach((e) => e.addEventListener("click", setMessages));
+const sendMessage = () => {
+  if (!$inputChat.value || !chatMessages.phone) return;
+  var url = "https://mindqubewhatsapp.onrender.com/chat/reenviar";
+  var data = { message: $inputChat.value, phoneNumber: chatMessages.phone };
 
-////////////////////////////////////////////////HEADER LOGIC/////////////////////////////////
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      console.log("im fetch res", res);
+      return res;
+    })
+    .then((res) => res.json())
+    .then((res) =>
+      res
+        ? saveMindqubeMessage(res)
+        : console.log("empty fetch to chat/reenviar")
+    )
+    .catch((error) => console.error("Error:", error));
+};
+$inputChat.addEventListener("keypress", sendMessage);
+$sendMessage.addEventListener("click", sendMessage);
 
-//const $contacts = $all("[name='contact']");
-//$contacts.forEach((e) => e.addEventListener("click", setMessages));
+const saveMindqubeMessage = (payload) => {
+  //need configure for the templates
+  users = users.value.map((e) => {
+    if (e.phone === payload.phone) {
+      e.whatsapp.push(payload.message);
+    }
+    return e;
+  });
+  setContactsList(users);
+};
+
+//////////////////////WEBSOCKET///////////////////////////////
+var stompClient = null;
+const connect = () => {
+  let Sock = new SockJS("https://mindqubewhatsapp.onrender.com/ws");
+  console.log("im sock", Sock);
+  stompClient = Stomp.over(Sock);
+  stompClient.connect({}, onConnected, onError);
+  event.preventDefault();
+};
+connect();
+
+const onConnected = () => {
+  stompClient.subscribe("/topic/public", onMessageReceived);
+};
+
+const onMessageReceived = (payload) => {
+  var payloadData = JSON.parse(payload.body);
+  console.log("im payloadData", payloadData);
+
+  if (payloadData.type === "new user") {
+    console.log("new user");
+    if (!users.length) {
+      users = [payloadData.user];
+      setContactsList(users);
+    } else {
+      // let updateUserList = [...users.value,payloadData.user]
+      // users.value = sortmessages(updateUserList);
+      // console.log("im new user result", users.value);
+      users = [payloadData.user, ...users];
+      setContactsList(users);
+    }
+  }
+  if (payloadData.type === "new message") {
+    let messageAdded = [...users.value].map((e) => {
+      if (e.phone === payloadData.phone) {
+        e.whatsapp.push(payloadData.message);
+      }
+      return e;
+    });
+    users = sortmessages(messageAdded);
+    setContactsList(users);
+  }
+  if (payloadData.type === "update message") {
+    console.log("update message");
+    users = users.map((e) => {
+      if (e.phone === payloadData.phone) {
+        e.whatsapp.map((a) => {
+          if (a.whatsapp_id === payloadData.message_id) {
+            if (!a.timestamp) {
+              a.timestamp = payloadData.timestamps;
+            }
+            a.status = payloadData.status;
+          }
+          return a;
+        });
+      }
+      return e;
+    });
+    setContactsList(users);
+  }
+};
+
+const onError = (err) => {
+  console.log(err);
+};
