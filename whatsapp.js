@@ -139,13 +139,14 @@ function bindingFunction() {
 users = sortmessages([...users]);
 console.log("im sorte users", users);
 const setMessages = (e) => {
-  console.log("gola");
-  console.log(e.currentTarget.test);
+  console.log(e);
+
+  //valueTest = e.currentTarget.name;
 };
+let valueTest = null;
 users.map((e) => {
-  $listContacts.innerHTML += `<li name=contact${
-    e.id
-  } id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
+  const li = document.createElement("li");
+  li.innerHTML = `<li name=contact id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
      <i data-lucide=user-circle-2 class=imageprofile></i>
      <div class=listContacts__border--bottom>
       <div class= "text-lg font-normal">${e.name}</div>
@@ -157,10 +158,12 @@ users.map((e) => {
       </div>
      </div>
     </li>`;
-  $(`[name='contact${e.id}']`).test = "test";
+  //$(`[name='contact${e.id}']`).test = "test";
+  li.addEventListener("click", () => setMessages(e));
+  $listContacts.appendChild(li);
 });
-const $contact = $all("#contact-id");
-$contact.forEach((e) => e.addEventListener("click", setMessages));
+// const $contact = $all("#contact-id");
+// $contact.forEach((e) => e.addEventListener("click", setMessages));
 
 $header.innerHTML = `<div class=text-white>HOLA</div>`;
 
