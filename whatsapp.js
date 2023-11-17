@@ -11,87 +11,90 @@ const $inputChat = $("#chat-floating");
 const $sendMessage = $("#sendMessage");
 
 //////////////////////////////CONTACTS LOGIC///////////////////////////////////////
+let chatMessages = null;
+let users = [];
+var stompClient = null;
 var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
-// fetch(url, {
-//   method: "GET",
-// })
-//   .then((res) => res.json())
-//   .then((res) => {
-//     console.log("im fetch res", res);
-//     return res;
-//   })
-//   .then((res) =>
-//     res ? sortmessages(res) : console.log("empty fetch useEffect")
-//   )
-//   .then((res) => (users = res))
-//   .then((res) => setContactsList(res))
+fetch(url, {
+  method: "GET",
+})
+  .then((res) => res.json())
+  .then((res) => {
+    console.log("im fetch res", res);
+    return res;
+  })
+  .then((res) =>
+    res ? sortmessages(res) : console.log("empty fetch useEffect")
+  )
+  .then((res) => (users = res))
+  .then((res) => setContactsList(res))
 
-//   .catch((error) => console.error("Error:", error));
+  .catch((error) => console.error("Error:", error));
 
 //console.log("soy users", users);
 //$contacts.innerHTML = `<li>${"hola"}</li>`;
-let chatMessages = null;
-let users = [
-  {
-    id: 1,
-    name: "Franco Vedia",
-    phone: "5493875610606",
-    whatsapp: [
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "delivered",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Ana",
-    phone: "5493875295146",
-    whatsapp: [
-      {
-        id: 3,
-        message: "Hola",
-        name: "Ana",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABIYIEZEOTM1MTkxOEZGRTNFNDhCODM5MjZCRDdGNDUyNzVCAA==",
-        timestamp: "1700092603",
-      },
-      {
-        id: 6,
-        message: "123456789012345678901234567890123456789012345",
-        name: "Mindqube",
-        status: "sent",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABEYEkVDQ0IxREY5QjM5NjUwOTUzRgA=",
-        timestamp: "1700092753",
-      },
-    ],
-  },
-];
+
+// let users = [
+//   {
+//     id: 1,
+//     name: "Franco Vedia",
+//     phone: "5493875610606",
+//     whatsapp: [
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "delivered",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     name: "Ana",
+//     phone: "5493875295146",
+//     whatsapp: [
+//       {
+//         id: 3,
+//         message: "Hola",
+//         name: "Ana",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABIYIEZEOTM1MTkxOEZGRTNFNDhCODM5MjZCRDdGNDUyNzVCAA==",
+//         timestamp: "1700092603",
+//       },
+//       {
+//         id: 6,
+//         message: "123456789012345678901234567890123456789012345",
+//         name: "Mindqube",
+//         status: "sent",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABEYEkVDQ0IxREY5QjM5NjUwOTUzRgA=",
+//         timestamp: "1700092753",
+//       },
+//     ],
+//   },
+// ];
 const sortmessages = (array) => {
   for (let i = 0; i < array.length; i++) {
     array[i].whatsapp.sort((a, b) => a.timestamp - b.timestamp);
@@ -103,7 +106,7 @@ const sortmessages = (array) => {
   );
   return array;
 };
-let test = true;
+
 let checked = (e) => {
   let status = e.whatsapp[e.whatsapp.length - 1].status;
   switch (status) {
@@ -118,7 +121,6 @@ let checked = (e) => {
   }
 };
 
-let imgProfile = null;
 const previewMessage = (e) => {
   let message = e.whatsapp[e.whatsapp.length - 1].message;
   if (message.length > 30) {
@@ -136,17 +138,15 @@ function bindingFunction() {
   };
 }
 
-users = sortmessages([...users]);
-
 const setMessages = (e) => {
   setHeader(e);
   setBodyChat(e);
 };
 
-let valueTest = null;
 const setContactsList = (usersList) => {
+  const messagesSorted = sortmessages(usersList);
   $listContacts.innerHTML = "";
-  usersList.map((e) => {
+  messagesSorted.map((e) => {
     const li = document.createElement("li");
     li.innerHTML = `<li name=contact id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
        <i data-lucide=user-circle-2 class="imageprofile text-[#adbac1]"></i>
@@ -163,6 +163,7 @@ const setContactsList = (usersList) => {
     //$(`[name='contact${e.id}']`).test = "test";
     li.addEventListener("click", () => setMessages(e));
     $listContacts.appendChild(li);
+    scrollDown();
   });
 };
 
@@ -174,6 +175,13 @@ setContactsList(users);
 
 //const $contacts = $all("[name='contact']");
 //$contacts.forEach((e) => e.addEventListener("click", setMessages));
+
+$inputChat.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    sendMessage();
+    // code for enter
+  }
+});
 
 const setHeader = (e) => {
   $iconHeader.classList.remove("hidden");
@@ -198,6 +206,7 @@ const setBodyChat = (user) => {
     </div>
   </div>`;
   });
+  scrollDown();
 };
 
 const sendMessage = () => {
@@ -223,13 +232,15 @@ const sendMessage = () => {
         : console.log("empty fetch to chat/reenviar")
     )
     .catch((error) => console.error("Error:", error));
+  $inputChat.value = "";
+  event.preventDefault();
 };
-$inputChat.addEventListener("keypress", sendMessage);
+//$inputChat.addEventListener("keypress", sendMessage);
 $sendMessage.addEventListener("click", sendMessage);
 
 const saveMindqubeMessage = (payload) => {
   //need configure for the templates
-  users = users.value.map((e) => {
+  users = users.map((e) => {
     if (e.phone === payload.phone) {
       e.whatsapp.push(payload.message);
     }
@@ -239,16 +250,6 @@ const saveMindqubeMessage = (payload) => {
 };
 
 //////////////////////WEBSOCKET///////////////////////////////
-var stompClient = null;
-const connect = () => {
-  let Sock = new SockJS("https://mindqubewhatsapp.onrender.com/ws");
-  console.log("im sock", Sock);
-  stompClient = Stomp.over(Sock);
-  stompClient.connect({}, onConnected, onError);
-  event.preventDefault();
-};
-connect();
-
 const onConnected = () => {
   stompClient.subscribe("/topic/public", onMessageReceived);
 };
@@ -261,27 +262,29 @@ const onMessageReceived = (payload) => {
     console.log("new user");
     if (!users.length) {
       users = [payloadData.user];
-      setContactsList(users);
     } else {
       // let updateUserList = [...users.value,payloadData.user]
       // users.value = sortmessages(updateUserList);
       // console.log("im new user result", users.value);
       users = [payloadData.user, ...users];
-      setContactsList(users);
     }
+    setContactsList(users);
   }
   if (payloadData.type === "new message") {
-    let messageAdded = [...users.value].map((e) => {
+    const currentUser = users.find((e) => e.phone === chatMessages.phone);
+    let messageAdded = [...users].map((e) => {
       if (e.phone === payloadData.phone) {
         e.whatsapp.push(payloadData.message);
       }
       return e;
     });
-    users = sortmessages(messageAdded);
+    users = messageAdded;
     setContactsList(users);
+    setBodyChat(currentUser);
   }
   if (payloadData.type === "update message") {
     console.log("update message");
+    const currentUser = users.find((e) => e.phone === chatMessages.phone);
     users = users.map((e) => {
       if (e.phone === payloadData.phone) {
         e.whatsapp.map((a) => {
@@ -297,9 +300,29 @@ const onMessageReceived = (payload) => {
       return e;
     });
     setContactsList(users);
+    setBodyChat(currentUser);
+
+    console.log("soy users", users);
+    console.log("soy current user", currentUser);
+    console.log("soy chatmessages", chatMessages);
+    // setContactsList(users);
+    //currentUser && setBodyChat(currentUser);
   }
 };
 
 const onError = (err) => {
   console.log(err);
+};
+
+const connect = () => {
+  let Sock = new SockJS("https://mindqubewhatsapp.onrender.com/ws");
+  console.log("im sock", Sock);
+  stompClient = Stomp.over(Sock);
+  stompClient.connect({}, onConnected, onError);
+  //event.preventDefault();
+};
+connect();
+
+const scrollDown = () => {
+  $bodyMessages.scrollTop = $bodyMessages.scrollHeight;
 };
