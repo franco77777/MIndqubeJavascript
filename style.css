@@ -20,6 +20,29 @@
 .listContacts__image--checked-one{
   color: #82929b;
   stroke-width: 1px;
+  
+  
+  
+}
+
+.imageprofile{
+  
+  color:grey;
+  height: 50px;
+  width: 50px;
+
+}
+
+.listContacts__border--bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  height:100%;
+  width: 100%;
+  border-bottom:1px solid;
+  border-color:rgba(134,150,160,0.15);
+  
 }
 
 

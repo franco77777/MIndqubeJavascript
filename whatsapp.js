@@ -76,7 +76,7 @@ let users = [
       },
       {
         id: 6,
-        message: "hola1",
+        message: "123456789012345678901234567890123456789012345",
         name: "Mindqube",
         status: "sent",
         whatsapp_id:
@@ -112,16 +112,30 @@ let checked = (e) => {
   }
 };
 
+let imgProfile = null;
+const previewMessage = (e) => {
+  let message = e.whatsapp[e.whatsapp.length - 1].message;
+  if (message.length > 30) {
+    let cutMessage = message.slice(0, 25) + "...";
+    return cutMessage;
+  } else {
+    return message;
+  }
+};
+
 users = sortmessages([...users]);
 console.log("im sorte users", users);
 users.map((e) => {
-  $contacts.innerHTML += `<li class="text-white bg-[#121b21] h-[72px] flex flex-col justify-center">
-                           <div class= "text-xl font-extralight">${e.name}</div>
-                           <div class="flex justify-start items-center gap-1">
-                            ${checked(e)}
-                            <span class="text-sm text-[#82929b]">${
-                              e.whatsapp[e.whatsapp.length - 1].message
-                            }
+  $contacts.innerHTML += `<li class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer ">
+                           <i data-lucide=user-circle-2 class=imageprofile></i>
+                           <div class=listContacts__border--bottom>
+                            <div class= "text-xl font-light">${e.name}</div>
+                            <div class="flex justify-start items-center gap-1">
+                             ${checked(e)}
+                             <span class="text-sm text-[#82929b]">
+                              ${previewMessage(e)}
+                             </span>
+                            </div>
                            </div>
                           </li>`;
 });
