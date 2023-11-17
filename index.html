@@ -44,13 +44,25 @@
       </div> 
       <div class="flex flex-col w-full min-h-screen">
         <!-- //////////////////////////////////HEADER/////////////////////////////// -->
-       <header class="bg-[#202c33] w-full min-h-[59px] " id="header"></header>
-       <div class="bg-blue-500 w-full h-full overflow-y-auto ">
+       <header class="bg-[#202c33] w-full min-h-[59px] flex gap-3 items-center " id="header">
+        <div class="hidden" id="icon-header">
+          <i data-lucide="user-circle-2" class="imageprofile ml-2 " ></i>
+        </div>
+        
+        <div id="header-div">
+
+        </div>
+        
+       </header>
+       <div class=" w-full h-full text-white overflow-y-auto bg-[#0a141a]" id="body-messages">
+         
        </div>
        <div class="w-full bg-green-500 min-h-[59px]"></div>
       </div>
     </main>
-    
+    <template id="template-icon">
+      <i data-lucide=user-circle-2 class=imageprofile></i>
+    </template>
 <script src="whatsapp.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
   <script>

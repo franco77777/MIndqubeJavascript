@@ -1,11 +1,12 @@
 const $ = (selector) => document.querySelector(selector);
 const $all = (selector) => document.querySelectorAll(selector);
 const $listContacts = $("#list-contacts");
-
+const $headerList = $("#header-list");
 const $header = $("#header");
 const $mindqube = $("#mindqube");
-
-let messages = null;
+const $bodyMessages = $("#body-messages");
+const $iconHeader = $("#icon-header");
+const $divHeader = $("#header-div");
 
 //////////////////////////////CONTACTS LOGIC///////////////////////////////////////
 // var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
@@ -137,12 +138,37 @@ function bindingFunction() {
 }
 
 users = sortmessages([...users]);
-console.log("im sorte users", users);
-const setMessages = (e) => {
-  console.log(e);
+const fragment = document.createDocumentFragment();
+const template = document.querySelector("#template-icon").content;
 
-  //valueTest = e.currentTarget.name;
+const setMessages = (e) => {
+  setHeader(e);
+  setBody(e);
 };
+const setHeader = (e) => {
+  $iconHeader.classList.remove("hidden");
+  $divHeader.innerHTML = `
+  <div class="flex flex-col justify-center text-white">
+     <div class="text-lg font-normal">${e.name}</div>
+    <span class="text-xs text-[#82929b]">${e.timestamp}</span>
+    </div>`;
+};
+const setBody = (user) => {
+  $bodyMessages.innerHTML = "";
+  user.whatsapp.map((e, i) => {
+    $bodyMessages.innerHTML += `
+    <div class="relative w-full  ">
+    <div class="w-max  ${e.name === "Mindqube" ? "ml-auto mr-0" : ""}">
+      <div>${e.name}</div>
+      <div>${e.message}</div>
+      <div>${user.phone}</div>
+      <div>${e.timestamp}</div>
+      <div>${e.status}</div>
+    </div>
+  </div>`;
+  });
+};
+
 let valueTest = null;
 users.map((e) => {
   const li = document.createElement("li");
@@ -165,9 +191,7 @@ users.map((e) => {
 // const $contact = $all("#contact-id");
 // $contact.forEach((e) => e.addEventListener("click", setMessages));
 
-$header.innerHTML = `<div class=text-white>HOLA</div>`;
-
-////////////////////////////////////////////////MESSAGES LOGIC/////////////////////////////////
+////////////////////////////////////////////////HEADER LOGIC/////////////////////////////////
 
 //const $contacts = $all("[name='contact']");
 //$contacts.forEach((e) => e.addEventListener("click", setMessages));
