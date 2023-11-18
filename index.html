@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
           theme: {
@@ -17,7 +18,7 @@
         }
       </script>
       <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
     
     <link rel="stylesheet" href="style.css">
@@ -25,7 +26,7 @@
 <body>
     <main class="flex max-h-screen min-h-screen overflow-hidden ">
       <!-- /////////////////////////////////////////SIDEBAR////////////////////////////// -->
-      <div class="min-w-[22rem] flex flex-col overflow-x-hidden border-r-[2px] border-[#2a3942]">
+      <div class="min-w-[22rem] w-[43rem] flex flex-col overflow-x-hidden border-r-[2px] border-[#2a3942]">
        <div class="bg-[#202c33] flex items-center justify-center min-h-[59px] gap-2">
         <img src="/mindqube_logo.png" alt="" class="w-10 h-10">
         <div class="text-white text-xl" id="mindqube">mindqube</div>
@@ -33,7 +34,7 @@
        <div class="bg-[#121b21] h-[49px] ">
         <div class="m-1 px-2 ">
         <div class="relative z-0 bg-[#202c33] rounded-lg ">
-          <i data-lucide="search " class="absolute left-3 top-2 w-5 text-[#82929b] pointer-events-none"></i>
+          <svg class="absolute left-3 top-2 w-5 text-[#82929b] pointer-events-none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           <input type="text" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0  appearance-none  focus:outline-none focus:ring-0  peer" placeholder=" " />
           <label for="floating_standard" class="absolute text-sm text-[#82929b]  duration-300 transform  left-10 top-3 -z-10 origin-[0] peer-focus:start-0      peer-focus:translate-x-[30rem]  ">Look for a chat</label>
         </div>
@@ -45,9 +46,7 @@
       <div class="flex flex-col w-full min-h-screen">
         <!-- //////////////////////////////////HEADER/////////////////////////////// -->
        <header class="bg-[#202c33] w-full min-h-[59px] flex gap-3 items-center " id="header">
-        <div class="hidden" id="icon-header">
-          <i data-lucide="user-circle-2" class="imageprofile ml-2 text-[#adbac1] " ></i>
-        </div>
+        
         
         <div id="header-div">
 
@@ -62,18 +61,20 @@
         <input type="text" id="chat-floating" class="block w-full text-sm mx-2 text-white bg-[#2a3942] border-0  appearance-none  focus:outline-none focus:ring-0  peer rounded-xl" placeholder=" " />
         <label for="chat-floating" class="absolute pointer-events-none text-[#82929b] duration-300 transform  left-10 top-4.3 z-10 origin-[0] peer-focus:start-0      peer-focus:translate-x-[120rem]  ">Write a message</label>
         <div id="sendMessage" class=" cursor-pointer mr-2">
-        <i data-lucide="send-horizontal" class="w-9 h-9 text-[#adbac1]" ></i>
-      </div>
-        
+        <svg class="w-9 h-9 text-[#adbac1]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal"><path d="m3 3 3 9-3 9 19-9Z"/><path d="M6 12h16"/></svg> 
+       </div>
+     
        </div>
       </div>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>    
+    
 <script src="whatsapp.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();
   </script>
+  
 </body>
 </html>

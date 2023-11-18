@@ -5,7 +5,7 @@ const $headerList = $("#header-list");
 const $header = $("#header");
 const $mindqube = $("#mindqube");
 const $bodyMessages = $("#body-messages");
-const $iconHeader = $("#icon-header");
+
 const $divHeader = $("#header-div");
 const $inputChat = $("#chat-floating");
 const $sendMessage = $("#sendMessage");
@@ -15,26 +15,26 @@ let chatMessages = null;
 let users = [];
 var stompClient = null;
 var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
-fetch(url, {
-  method: "GET",
-})
-  .then((res) => res.json())
-  .then((res) => {
-    console.log("im fetch res", res);
-    return res;
-  })
-  .then((res) =>
-    res ? sortmessages(res) : console.log("empty fetch useEffect")
-  )
-  .then((res) => (users = res))
-  .then((res) => setContactsList(res))
+// fetch(url, {
+//   method: "GET",
+// })
+//   .then((res) => res.json())
+//   .then((res) => {
+//     console.log("im fetch res", res);
+//     return res;
+//   })
+//   .then((res) =>
+//     res ? sortmessages(res) : console.log("empty fetch useEffect")
+//   )
+//   .then((res) => (users = res))
+//   .then((res) => setContactsList(res))
 
-  .catch((error) => console.error("Error:", error));
+//   .catch((error) => console.error("Error:", error));
 
 //console.log("soy users", users);
 //$contacts.innerHTML = `<li>${"hola"}</li>`;
 
-// let users = [
+// let users2 = [
 //   {
 //     id: 1,
 //     name: "Franco Vedia",
@@ -62,7 +62,7 @@ fetch(url, {
 //         id: 4,
 //         message: "hola",
 //         name: "Franco Vedia",
-//         status: "delivered",
+//         status: "read",
 //         whatsapp_id:
 //           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
 //         timestamp: "1700092673",
@@ -95,6 +95,70 @@ fetch(url, {
 //     ],
 //   },
 // ];
+let users2 = [
+  {
+    id: 1,
+    name: "Franco Vedia",
+    phone: "5493875610606",
+    whatsapp: [
+      {
+        id: 1,
+        message: "hola",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBDQjBDMzU3OTg3NTkyRDBFNzIA",
+        timestamp: "1700262984",
+      },
+      {
+        id: 2,
+        message: "hola2",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA2RDMyODZCNkVENjE4RUEyOEYA",
+        timestamp: "1700263004",
+      },
+      {
+        id: 3,
+        message: "hola amigo, aqui todo bien",
+        name: "Mindqube",
+        status: "read",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkRBRjZFNjMyQUFBM0ZERDc1QgA=",
+        timestamp: "1700263020",
+      },
+      {
+        id: 4,
+        message: "que tal",
+        name: "Mindqube",
+        status: "read",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkQ5QTE0NkQ5N0RCMzNFREFDOQA=",
+        timestamp: "1700263121",
+      },
+      {
+        id: 5,
+        message: "aqui todo bien, vos",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA5RDE3OTkwRjNBRkMwQTlDMDkA",
+        timestamp: "1700263155",
+      },
+      {
+        id: 6,
+        message: "aqui genial, que bien por vos",
+        name: "Mindqube",
+        status: "read",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkRBRkFCNDFEQ0YxMDI0NzZEQgA=",
+        timestamp: 1700263166,
+      },
+    ],
+  },
+];
+
 const sortmessages = (array) => {
   for (let i = 0; i < array.length; i++) {
     array[i].whatsapp.sort((a, b) => a.timestamp - b.timestamp);
@@ -110,12 +174,12 @@ const sortmessages = (array) => {
 let checked = (e) => {
   let status = e.whatsapp[e.whatsapp.length - 1].status;
   switch (status) {
-    case "delivered":
-      return "<i data-lucide=check class=listContacts__image--checked-one ></i>";
-    case "read":
-      return "<i data-lucide=check-check class=listContacts__image--checked-two></i>";
     case "sent":
-      return "<i data-lucide=check-check class=listContacts__image--checked-one></i>";
+      return `<svg class="text-[#82929b]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>`;
+    case "delivered":
+      return `<svg class="text-[#82929b]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>`;
+    case "read":
+      return `<svg class="text-green-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>`;
     default:
       return "";
   }
@@ -124,34 +188,69 @@ let checked = (e) => {
 const previewMessage = (e) => {
   let message = e.whatsapp[e.whatsapp.length - 1].message;
   if (message.length > 30) {
-    let cutMessage = message.slice(0, 25) + "...";
+    let cutMessage = message.slice(0, 32) + "...";
     return cutMessage;
   } else {
     return message;
   }
 };
 
-function bindingFunction() {
-  document.getElementsByName("login").onclick = function () {
-    alert("blah");
-    //     Your code
-  };
-}
-
 const setMessages = (e) => {
   setHeader(e);
   setBodyChat(e);
 };
+const scrollDown = () => {
+  $bodyMessages.scrollTop = $bodyMessages.scrollHeight;
+};
+
+const getTime = (e) => {
+  const today = new Date();
+
+  const timestamp = parseInt(e);
+  const date = new Date(timestamp * 1000);
+  const dateYear = date.getFullYear();
+  const dateMonth = date.getMonth() + 1;
+  const dateDate = date.getDate();
+  const dateHours = date.getHours();
+  const dateMinutes = date.getMinutes();
+
+  const diffTime = Math.abs(today - date);
+  const diffTotalHours = Math.floor(diffTime / (1000 * 60 * 60));
+  const diffDays = Math.floor(diffTotalHours / 24);
+  //const diffHoursWithoutDays = diffTotalHours % 24;
+  const day = date.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+  if (diffTotalHours < 24) {
+    return `${dateHours}:${dateMinutes}`;
+  }
+  if (diffDays === 1) {
+    return "yesterday";
+  }
+  if (diffDays < 7) {
+    return day;
+  }
+  return `${dateDate}/${dateMonth}/${dateYear}`;
+};
+
+const followedAt = new Date(1700263004 * 1000);
+const currentDate = new Date();
 
 const setContactsList = (usersList) => {
   const messagesSorted = sortmessages(usersList);
   $listContacts.innerHTML = "";
   messagesSorted.map((e) => {
     const li = document.createElement("li");
-    li.innerHTML = `<li name=contact id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
-       <i data-lucide=user-circle-2 class="imageprofile text-[#adbac1]"></i>
-       <div class=listContacts__border--bottom>
-        <div class= "text-lg font-normal">${e.name}</div>
+    li.innerHTML = `
+      <li name=contact id=contact-id class="pl-2 text-white bg-[#121b21] h-[72px] flex gap-2 items-center hover:bg-[#2a3942] cursor-pointer">
+       <svg class="text-[#adbac1]" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-circle-2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+       <div class="listContacts__border--bottom px-2" >
+        <div class="flex items-center justify-between  w-full">
+          <div class= "text-lg font-normal">${e.name}</div>
+          <span class="text-[12px] text-[#82929b] ">${getTime(
+            e.whatsapp[e.whatsapp.length - 1].timestamp
+          )}</span>
+        </div>
         <div class="flex justify-start items-center gap-1">
          ${checked(e)}
          <span class="text-sm text-[#82929b]">
@@ -182,14 +281,16 @@ $inputChat.addEventListener("keypress", function (e) {
     // code for enter
   }
 });
-
+setContactsList(users2);
 const setHeader = (e) => {
-  $iconHeader.classList.remove("hidden");
   $divHeader.innerHTML = `
-  <div class="flex flex-col justify-center text-white">
-     <div class="text-lg font-normal">${e.name}</div>
-    <span class="text-xs text-[#82929b]">${e.timestamp}</span>
-    </div>`;
+        <div class="flex items-center gap-3 ml-3">
+        <svg class="text-[#adbac1]" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-circle-2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
+          <div class="flex flex-col justify-center text-white">
+           <div class="text-lg font-normal">${e.name}</div>
+           <span class="text-xs text-[#82929b]">${e.timestamp}</span>
+          </div>
+        </div>`;
 };
 const setBodyChat = (user) => {
   chatMessages = user;
@@ -201,7 +302,7 @@ const setBodyChat = (user) => {
       <div>${e.name}</div>
       <div>${e.message}</div>
       <div>${user.phone}</div>
-      <div>${e.timestamp}</div>
+      <div>${getTime(e.timestamp)}</div>
       <div>${e.status}</div>
     </div>
   </div>`;
@@ -321,8 +422,4 @@ const connect = () => {
   stompClient.connect({}, onConnected, onError);
   //event.preventDefault();
 };
-connect();
-
-const scrollDown = () => {
-  $bodyMessages.scrollTop = $bodyMessages.scrollHeight;
-};
+//connect();
