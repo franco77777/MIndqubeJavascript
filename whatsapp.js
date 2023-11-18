@@ -103,12 +103,12 @@ let users2 = [
     whatsapp: [
       {
         id: 1,
-        message: "hola",
+        message: "hola testing time",
         name: "Franco Vedia",
         status: "received",
         whatsapp_id:
           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBDQjBDMzU3OTg3NTkyRDBFNzIA",
-        timestamp: "1700262984",
+        timestamp: "1700092603",
       },
       {
         id: 2,
@@ -172,14 +172,13 @@ const sortmessages = (array) => {
 };
 
 let checked = (e) => {
-  let status = e.whatsapp[e.whatsapp.length - 1].status;
-  switch (status) {
+  switch (e) {
     case "sent":
-      return `<svg class="text-[#82929b]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>`;
+      return `<svg class="text-[#82929b]" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check"><path d="M20 6 9 17l-5-5"/></svg>`;
     case "delivered":
-      return `<svg class="text-[#82929b]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>`;
+      return `<svg class="text-[#82929b]" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>`;
     case "read":
-      return `<svg class="text-green-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>`;
+      return `<svg class="text-[#53bdeb]" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-check"><path d="M18 6 7 17l-5-5"/><path d="m22 10-7.5 7.5L13 16"/></svg>`;
     default:
       return "";
   }
@@ -201,6 +200,14 @@ const setMessages = (e) => {
 };
 const scrollDown = () => {
   $bodyMessages.scrollTop = $bodyMessages.scrollHeight;
+};
+
+const getHours = (e) => {
+  const timestamp = parseInt(e);
+  const date = new Date(timestamp * 1000);
+  const dateHours = date.getHours();
+  const dateMinutes = date.getMinutes();
+  return `${dateHours}:${dateMinutes}`;
 };
 
 const getTime = (e) => {
@@ -252,7 +259,7 @@ const setContactsList = (usersList) => {
           )}</span>
         </div>
         <div class="flex justify-start items-center gap-1">
-         ${checked(e)}
+         ${checked(e.whatsapp[e.whatsapp.length - 1].status)}
          <span class="text-sm text-[#82929b]">
           ${previewMessage(e)}
          </span>
@@ -286,9 +293,9 @@ const setHeader = (e) => {
   $divHeader.innerHTML = `
         <div class="flex items-center gap-3 ml-3">
         <svg class="text-[#adbac1]" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-circle-2"><path d="M18 20a6 6 0 0 0-12 0"/><circle cx="12" cy="10" r="4"/><circle cx="12" cy="12" r="10"/></svg>
-          <div class="flex flex-col justify-center text-white">
+          <div class="flex flex-col justify-center text-white ">
            <div class="text-lg font-normal">${e.name}</div>
-           <span class="text-xs text-[#82929b]">${e.timestamp}</span>
+           <span class="text-xs text-[#82929b]">${e.phone}</span>
           </div>
         </div>`;
 };
@@ -297,13 +304,16 @@ const setBodyChat = (user) => {
   $bodyMessages.innerHTML = "";
   user.whatsapp.map((e, i) => {
     $bodyMessages.innerHTML += `
-    <div class="relative w-full  ">
-    <div class="w-max  ${e.name === "Mindqube" ? "ml-auto mr-0" : ""}">
-      <div>${e.name}</div>
-      <div>${e.message}</div>
-      <div>${user.phone}</div>
-      <div>${getTime(e.timestamp)}</div>
-      <div>${e.status}</div>
+    <div class="relative w-full rounded-lg mt-2">
+    <div class="w-max rounded-lg p-2 ${
+      e.name === "Mindqube" ? "ml-auto mr-4 bg-[#005c4b]" : "bg-[#202c33]  ml-4"
+    }">
+      
+      <div class="text-[15px]">${e.message}</div>
+     <div class="flex justify-end items-center gap-1">
+      <div class="text-xs text-[#82929b]">${getHours(e.timestamp)}</div>
+      <div>${checked(e.status)}</div>
+      </div>  
     </div>
   </div>`;
   });
