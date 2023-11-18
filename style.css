@@ -21,7 +21,7 @@
   color: #82929b;
   stroke-width: 1px;
   
-  
+  background-color: rgba(11,20,26);
   
 }
 
@@ -55,4 +55,27 @@
 
 .input-chat{
   border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width:6px;
+  border-radius: 20px ;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:#0a141a; 
+  border-radius: 20px ;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:#3a4146; 
+   border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #005c4b; 
+  
 }
