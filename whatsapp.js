@@ -34,419 +34,6 @@ var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
 //console.log("soy users", users);
 //$contacts.innerHTML = `<li>${"hola"}</li>`;
 
-let users2 = [
-  {
-    id: 1,
-    name: "Franco Vedia",
-    phone: "5493875610606",
-    whatsapp: [
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Ana",
-    phone: "5493875295146",
-    whatsapp: [
-      {
-        id: 3,
-        message: "Hola",
-        name: "Ana",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABIYIEZEOTM1MTkxOEZGRTNFNDhCODM5MjZCRDdGNDUyNzVCAA==",
-        timestamp: "1700092603",
-      },
-      {
-        id: 6,
-        message: "123456789012345678901234567890123456789012345",
-        name: "Mindqube",
-        status: "sent",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABEYEkVDQ0IxREY5QjM5NjUwOTUzRgA=",
-        timestamp: "1700092753",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-      {
-        id: 1,
-        message: "hola amigo",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
-        timestamp: "1700092452",
-      },
-      {
-        id: 2,
-        message: "que tal, todo bien ?",
-        name: "Mindqube",
-        status: "read",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
-        timestamp: "1700092486",
-      },
-      {
-        id: 4,
-        message: "hola",
-        name: "Franco Vedia",
-        status: "received",
-        whatsapp_id:
-          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
-        timestamp: "1700092673",
-      },
-    ],
-  },
-];
 // let users2 = [
 //   {
 //     id: 1,
@@ -455,61 +42,519 @@ let users2 = [
 //     whatsapp: [
 //       {
 //         id: 1,
-//         message: "hola testing time",
+//         message: "hola amigo",
 //         name: "Franco Vedia",
 //         status: "received",
 //         whatsapp_id:
-//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBDQjBDMzU3OTg3NTkyRDBFNzIA",
-//         timestamp: "1700092603",
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
 //       },
 //       {
 //         id: 2,
-//         message: "hola2",
-//         name: "Franco Vedia",
-//         status: "received",
-//         whatsapp_id:
-//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA2RDMyODZCNkVENjE4RUEyOEYA",
-//         timestamp: "1700263004",
-//       },
-//       {
-//         id: 3,
-//         message: "hola amigo, aqui todo bien",
+//         message: "que tal, todo bien ?",
 //         name: "Mindqube",
 //         status: "read",
 //         whatsapp_id:
-//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkRBRjZFNjMyQUFBM0ZERDc1QgA=",
-//         timestamp: "1700263020",
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
 //       },
 //       {
 //         id: 4,
-//         message: "que tal",
-//         name: "Mindqube",
-//         status: "read",
-//         whatsapp_id:
-//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkQ5QTE0NkQ5N0RCMzNFREFDOQA=",
-//         timestamp: "1700263121",
-//       },
-//       {
-//         id: 5,
-//         message: "aqui todo bien, vos",
+//         message: "hola",
 //         name: "Franco Vedia",
 //         status: "received",
 //         whatsapp_id:
-//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA5RDE3OTkwRjNBRkMwQTlDMDkA",
-//         timestamp: "1700263155",
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
 //       },
 //       {
-//         id: 6,
-//         message: "aqui genial, que bien por vos",
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
 //         name: "Mindqube",
 //         status: "read",
 //         whatsapp_id:
-//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkRBRkFCNDFEQ0YxMDI0NzZEQgA=",
-//         timestamp: 1700263166,
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     name: "Ana",
+//     phone: "5493875295146",
+//     whatsapp: [
+//       {
+//         id: 3,
+//         message: "Hola",
+//         name: "Ana",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABIYIEZEOTM1MTkxOEZGRTNFNDhCODM5MjZCRDdGNDUyNzVCAA==",
+//         timestamp: "1700092603",
+//       },
+//       {
+//         id: 6,
+//         message: "123456789012345678901234567890123456789012345",
+//         name: "Mindqube",
+//         status: "sent",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTI5NTE0NhUCABEYEkVDQ0IxREY5QjM5NjUwOTUzRgA=",
+//         timestamp: "1700092753",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
+//       },
+//       {
+//         id: 1,
+//         message: "hola amigo",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBGOURBQjg2RDhGRDBBQ0UxNzEA",
+//         timestamp: "1700092452",
+//       },
+//       {
+//         id: 2,
+//         message: "que tal, todo bien ?",
+//         name: "Mindqube",
+//         status: "read",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEjM4OEIzQ0EwN0IwQzUzMEVEQwA=",
+//         timestamp: "1700092486",
+//       },
+//       {
+//         id: 4,
+//         message: "hola",
+//         name: "Franco Vedia",
+//         status: "received",
+//         whatsapp_id:
+//           "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA3RUQ4NzA0MzA4QkYwNDQ3MDcA",
+//         timestamp: "1700092673",
 //       },
 //     ],
 //   },
 // ];
+let hoy = "1700312659";
+let ayer17 = "1700193859";
+let ayer16 = "1700118259";
+let ayer15 = "1700064259";
+let ayer14 = "1699956259";
+let october = "1697321059";
+let september = "1694739859";
+let lunes = "1699859059";
+let users2 = [
+  {
+    id: 1,
+    name: "Franco Vedia",
+    phone: "5493875610606",
+    whatsapp: [
+      {
+        id: 1,
+        message: "lunes",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBDQjBDMzU3OTg3NTkyRDBFNzIA",
+        timestamp: lunes,
+      },
+      {
+        id: 1,
+        message: "september",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBDQjBDMzU3OTg3NTkyRDBFNzIA",
+        timestamp: september,
+      },
+      {
+        id: 1,
+        message: "hola testing time",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjBDQjBDMzU3OTg3NTkyRDBFNzIA",
+        timestamp: ayer14,
+      },
+      {
+        id: 2,
+        message: "october",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA2RDMyODZCNkVENjE4RUEyOEYA",
+        timestamp: october,
+      },
+      {
+        id: 3,
+        message: "hola amigo, aqui todo bien",
+        name: "Mindqube",
+        status: "read",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkRBRjZFNjMyQUFBM0ZERDc1QgA=",
+        timestamp: ayer15,
+      },
+      {
+        id: 4,
+        message: "que tal",
+        name: "Mindqube",
+        status: "read",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkQ5QTE0NkQ5N0RCMzNFREFDOQA=",
+        timestamp: ayer16,
+      },
+      {
+        id: 5,
+        message: "aqui todo bien, vos",
+        name: "Franco Vedia",
+        status: "received",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABIYFjNFQjA5RDE3OTkwRjNBRkMwQTlDMDkA",
+        timestamp: ayer17,
+      },
+      {
+        id: 6,
+        message: "aqui genial, que bien por vos",
+        name: "Mindqube",
+        status: "read",
+        whatsapp_id:
+          "wamid.HBgNNTQ5Mzg3NTYxMDYwNhUCABEYEkRBRkFCNDFEQ0YxMDI0NzZEQgA=",
+        timestamp: hoy,
+      },
+    ],
+  },
+];
+
+const test = () => {
+  var date1 = new Date(parseInt(ayer16 * 1000));
+  var date2 = new Date(parseInt(ayer17 * 1000));
+  const diffInDays = moment(date2).diff(moment(date1), "days");
+  console.log("figgdays", diffInDays);
+
+  // To calculate the time difference of two dates
+
+  const currentDate2 = new Date(parseInt(ayer16) * 1000);
+
+  const day = currentDate2.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+
+  console.log("soy timestamps", day);
+};
+
+test();
 
 const sortmessages = (array) => {
   for (let i = 0; i < array.length; i++) {
@@ -560,7 +605,11 @@ const getHours = (e) => {
   const date = new Date(timestamp * 1000);
   const dateHours = date.getHours();
   const dateMinutes = date.getMinutes();
-  return `${dateHours}:${dateMinutes}`;
+  let hours = dateHours;
+  let minutes = dateMinutes;
+  dateHours < 10 ? (hours = "0" + dateHours) : "";
+  dateMinutes < 10 ? (minutes = "0" + dateMinutes) : "";
+  return `${hours}:${minutes}`;
 };
 
 const getTime = (e) => {
@@ -581,8 +630,12 @@ const getTime = (e) => {
   const day = date.toLocaleDateString("en-US", {
     weekday: "long",
   });
-  if (diffTotalHours < 24) {
-    return `${dateHours}:${dateMinutes}`;
+  if (diffDays === 0) {
+    let hours = dateHours;
+    let minutes = dateMinutes;
+    dateHours < 10 ? (hours = "0" + dateHours) : "";
+    dateMinutes < 10 ? (minutes = "0" + dateMinutes) : "";
+    return `${hours}:${minutes}`;
   }
   if (diffDays === 1) {
     return "yesterday";
@@ -658,18 +711,120 @@ const setHeader = (e) => {
 // var width = positionInfo.width;
 // console.log("soy width ", width);
 let isUp = null;
+let bodyDate = null;
 const setMargin = (e) => {
   if (!isUp) return "mt-1";
   if (isUp === e) return "mt-1";
   if (isUp !== e) return "mt-4";
 };
+
+const setBodyDate = (e) => {
+  const today = new Date();
+
+  const timestamp = parseInt(e);
+  const date = new Date(timestamp * 1000);
+  const dateYear = date.getFullYear();
+  const dateMonth = date.getMonth() + 1;
+  const dateDate = date.getDate();
+  const dateHours = date.getHours();
+  const dateMinutes = date.getMinutes();
+
+  const diffTime = Math.abs(today - date);
+  const diffTotalHours = Math.floor(diffTime / (1000 * 60 * 60));
+  const diffDays = Math.floor(diffTotalHours / 24);
+
+  const day = date.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+
+  const timeofBodyDate = bodyDate && parseInt(bodyDate[0]);
+  const timestampBodyDate = new Date(timeofBodyDate * 1000);
+  const diffTimeBodyDate = Math.abs(date - timestampBodyDate);
+
+  const diffTotalHoursBodyDate = Math.floor(
+    diffTimeBodyDate / (1000 * 60 * 60)
+  );
+
+  const diffDaysBodyDate = Math.floor(diffTotalHoursBodyDate / 24);
+  const diffInDays = moment(today).diff(moment(date), "days");
+  const diffInDaysTimestampsAndBodydate = moment(date).diff(
+    moment(timestampBodyDate),
+    "days"
+  );
+  console.log("soy dif times", diffInDaysTimestampsAndBodydate);
+  let dayClass =
+    "bg-[#192229] mx-auto w-max text-[#82929b] text-[12px] rounded-md p-2 my-2 ";
+  if (!bodyDate) {
+    if (diffInDays === 0) {
+      bodyDate = [e, day];
+
+      return `<div class="${dayClass}test">TODAY</div>`;
+    }
+    if (diffInDays === 1) {
+      bodyDate = [e, day];
+      return `<div class="${dayClass} test">YESTERDAY</div>`;
+    }
+    if (diffInDays < 7) {
+      bodyDate = [e, day];
+
+      return `<div class="${dayClass}">${day.toUpperCase()} "test"</div>`;
+    }
+    bodyDate = [e, day];
+    return `<div class="${dayClass}">${dateDate}/${dateMonth}/${dateYear} "test"</div>`;
+  }
+
+  if (diffInDaysTimestampsAndBodydate > 7 && diffInDays < 7) {
+    if (diffInDays === 0) {
+      bodyDate = [e, day];
+      return `<div class="${dayClass}test">TODAY</div>`;
+    }
+    if (diffInDays === 1) {
+      bodyDate = [e, day];
+      return `<div class="${dayClass}">YESTERDAY</div>`;
+    }
+    if (diffInDays < 7) {
+      bodyDate = [e, day];
+      return `<div class="${dayClass}">${day.toUpperCase()}</div>`;
+    }
+    bodyDate = [e, day];
+    return `<div class="${dayClass}">${dateDate}/${dateMonth}/${dateYear} "test"</div>`;
+  }
+
+  if (diffInDaysTimestampsAndBodydate < 7 && bodyDate[1] !== day) {
+    if (diffInDays === 0) {
+      bodyDate = [e, day];
+      return `<div class="${dayClass}test">TODAY</div>`;
+    }
+    if (diffInDays === 1) {
+      bodyDate = [e, day];
+      return `<div class="${dayClass}">YESTERDAY</div>`;
+    }
+    if (diffInDays < 7) {
+      bodyDate = [e, day];
+      return `<div class="${dayClass}">${day.toUpperCase()}</div>`;
+    }
+    bodyDate = [e, day];
+    return `<div class="${dayClass}">${dateDate}/${dateMonth}/${dateYear} "test"</div>`;
+  }
+
+  if (diffInDaysTimestampsAndBodydate >= 7) {
+    bodyDate = [e, day];
+    return `<div class="${dayClass}">${dateDate}/${dateMonth}/${dateYear} "test2"</div>`;
+  }
+  bodyDate = [e, day];
+
+  return "";
+};
 const setBodyChat = (user) => {
+  bodyDate = null;
   chatMessages = user;
   $bodyMessages.innerHTML = "";
   user.whatsapp.map((e, i) => {
     $bodyMessages.innerHTML += `
+    
     <div class="relative w-full rounded-lg ${setMargin(e.name)}">
-    <div class="w-max rounded-md p-[6px]  pl-2 flex gap-1 relative min-w-max ${
+    ${setBodyDate(e.timestamp)}
+    <div class="w-max rounded-md p-[6px]  pl-2 flex gap-2 relative min-w-max ${
       e.name === "Mindqube" ? "ml-auto mr-4 bg-[#005c4b]" : "bg-[#202c33]  ml-4"
     }">
       
