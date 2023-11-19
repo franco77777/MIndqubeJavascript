@@ -80,3 +80,7 @@
   background: #005c4b; 
   
 }
+
+.width-webkit{
+  width: -webkit-fill-available;
+}

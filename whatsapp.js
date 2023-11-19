@@ -850,8 +850,8 @@ const setBodyChat = (user) => {
       )} p-[6px] break-words pl-2 flex gap-2 relative max-w-[65%] w-fit ${
       e.name === "Mindqube" ? "ml-auto mr-4 bg-[#005c4b]" : "bg-[#202c33]  ml-4"
     }">
-        <div class="text-[14px] break-words">${e.message}
-          <div class="flex justify-end items-center gap-1   float-right  mt-[12px] ml-[5px] mb-[-8px]">
+        <div class="text-[14px] break-words width-webkit">${e.message}
+          <div class="flex justify-end items-center gap-1   float-right  mt-[7px] ml-[5px] mb-[-8px]">
             <div class="text-[11px] text-[#82929b] p-0 m-0">${getHours(
               e.timestamp
             )}</div>
