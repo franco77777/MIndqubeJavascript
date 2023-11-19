@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="flex max-h-screen min-h-screen overflow-hidden ">
+    <main class="flex h-screen overflow-hidden xl:p-4 rounded-lg bg-[#0a141a]">
       <!-- /////////////////////////////////////////SIDEBAR////////////////////////////// -->
       <div class="min-w-[22rem] w-[43rem] flex flex-col overflow-x-hidden border-r-[2px] border-[#2a3942]">
        <div class="bg-[#202c33] flex items-center justify-center min-h-[59px] gap-2">
@@ -43,8 +43,9 @@
        <ul class="w-full h-full overflow-y-auto flex flex-col bg-[#121b21] " id="list-contacts">
        </ul>
       </div> 
-      <div class="flex flex-col w-full min-h-screen">
-        <!-- //////////////////////////////////HEADER/////////////////////////////// -->
+       <!-- //////////////////////////////////HEADER/////////////////////////////// -->
+      <div class="flex flex-col w-full h-screen">
+       
        <header class="bg-[#202c33] w-full min-h-[59px] flex gap-3 items-center " id="header">
         
         
@@ -53,10 +54,11 @@
         </div>
         
        </header>
-       <div class=" w-full h-full text-white overflow-y-auto bg-[#0a141a]" id="body-messages">
+         <!-- /////////////////////////////////////BODY CHAT///////////////////////////////// -->
+       <div class=" w-full h-screen text-white overflow-y-auto bg-[#0a141a] mb-2" id="body-messages">
         
        </div>
-       <div class="w-full bg-[#202c33] min-h-[59px] relative flex items-center" id="chat">
+       <div class="w-full bg-[#202c33] min-h-[59px] h-[59px] relative flex items-center xl:mb-[32px]" id="chat">
         
         <input type="text" id="chat-floating" class="block w-full text-sm mx-2 text-white bg-[#2a3942] border-0  appearance-none  focus:outline-none focus:ring-0  peer rounded-xl" placeholder=" " />
         <label for="chat-floating" class="absolute pointer-events-none text-[#82929b] duration-500 transform  left-10 top-4.3 z-10 origin-[0] peer-focus:start-0      peer-focus:translate-x-[120rem]  ">Write a message</label>
