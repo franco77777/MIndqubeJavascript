@@ -428,7 +428,8 @@ let users2 = [
       },
       {
         id: 2,
-        message: "que tal, todo bien ?",
+        message:
+          "que tal, todo hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola?",
         name: "Mindqube",
         status: "read",
         whatsapp_id:
@@ -437,7 +438,8 @@ let users2 = [
       },
       {
         id: 4,
-        message: "hola",
+        message:
+          "hola hola hola hola hola holav hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola hola",
         name: "Franco Vedia",
         status: "received",
         whatsapp_id:
@@ -817,25 +819,30 @@ const setBodyChat = (user) => {
   user.whatsapp.map((e, i) => {
     $bodyMessages.innerHTML += `
     
-    <div class="relative w-full rounded-lg ${setMargin(e.name)}">
-    ${setBodyDate(e.timestamp)}
-    <div class="w-max rounded-md p-[6px]  pl-2 flex gap-2 relative min-w-max ${
-      e.name === "Mindqube" ? "ml-auto mr-4 bg-[#005c4b]" : "bg-[#202c33]  ml-4"
-    }">
-      
-      <div class="text-[14px]">${e.message}</div>
-     <div class="flex justify-end items-center gap-1 opacity-0">
-      <div class="text-[12px] text-[#82929b] p-0 m-0">00:00
+    <div class="relative  rounded-lg ${setMargin(e.name)}">
+      ${setBodyDate(e.timestamp)}
+      <div class=" rounded-md p-[6px]  pl-2 flex gap-2 relative max-w-max ${
+        e.name === "Mindqube"
+          ? "ml-auto mr-4 bg-[#005c4b]"
+          : "bg-[#202c33]  ml-4"
+      }">
+        <div class="text-[14px] break-words">${e.message}
+          <div class="flex justify-end items-center gap-1 relative  float-right  mt-[12px] ml-[5px] mb-[-8px]">
+            <div class="text-[11px] text-[#82929b] p-0 m-0">${getHours(
+              e.timestamp
+            )}</div>
+            <div>${checked(e.status)}</div>
+          </div>    
+        </div>
+
+        <div class="flex justify-end items-center gap-1 opacity-0 hidden">
+          <div class="text-[12px] text-[#82929b] p-0 m-0">00:00</div>
+          <div>${checked(e.status)}</div>
+        </div>
+
+        
       </div>
-     <div>${checked(e.status)}</div>
-    </div>
-    <div class="flex justify-end items-center gap-1 absolute right-[6px] bottom-0">
-      <div class="text-[11px] text-[#82929b] p-0 m-0">${getHours(e.timestamp)}
-      </div>
-     <div>${checked(e.status)}</div>
-    </div>    
-   </div>
-  </div>`;
+    </div>`;
     isUp = e.name;
   });
   setTimeout(() => {
