@@ -11,10 +11,10 @@ const $inputChat = $("#chat-floating");
 const $sendMessage = $("#sendMessage");
 
 //////////////////////////////CONTACTS LOGIC///////////////////////////////////////
-// let chatMessages = null;
-// let users = [];
-// var stompClient = null;
-// var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
+let chatMessages = null;
+let users = [];
+var stompClient = null;
+var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
 // fetch(url, {
 //   method: "GET",
 // })
@@ -31,8 +31,32 @@ const $sendMessage = $("#sendMessage");
 
 //   .catch((error) => console.error("Error:", error));
 
-//console.log("soy users", users);
-//$contacts.innerHTML = `<li>${"hola"}</li>`;
+// console.log("soy users", users);
+let url2 =
+  "https://lookaside.fbsbx.com/whatsapp_business/attachments/?mid=2678050422350354&ext=1700440736&hash=ATvmnvRNqVpEgPlWJDQK66_JpCplDFFNyHTHlD0K3CFAXA";
+fetch(url2, {
+  method: "GET",
+  //body: JSON.stringify(data),
+  headers: {
+    //"Content-Type": "application/json",
+    Authorization:
+      "Bearer EAADz6AF76ZA4BOxQZAZCft95bxIbC269z2n2Ne20kjPxXHfVUtnXCiOZABZBHuyijaFv7sBphhmB28CHPA03FNFcQPu6T2XN0nYr4uUVPflCXx3TZATnr2rgCiZBosBwMDZArYw6F1gY9BpfnrxjHjv3WFx2GEggK0aJ9NHZBfgIQ5wwQfdw9liP95bw5teOXqAkohtdjHBTLuAsg95zNxHkZD",
+  },
+})
+  //.then((res) => res.json())
+  .then((res) => {
+    console.log("im fetch res2", res);
+    return res;
+  })
+  // .then((res) =>
+  //   res ? sortmessages(res) : console.log("empty fetch useEffect")
+  // )
+  // .then((res) => (users = res))
+  // .then((res) => setContactsList(res))
+
+  .catch((error) => console.error("Error:", error));
+
+console.log("soy users", users);
 
 let users2 = [
   {
@@ -983,7 +1007,7 @@ const connect = () => {
   //event.preventDefault();
 };
 //connect();
-setContactsList(users2);
+//setContactsList(users2);
 const scrollDown = () => {
   $bodyMessages.scrollTop = $bodyMessages.scrollHeight;
   console.log("scrolling");
