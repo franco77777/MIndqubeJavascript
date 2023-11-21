@@ -59,9 +59,12 @@
         
        </div>
        <div class="w-full bg-[#202c33] min-h-[59px] h-[59px] relative flex items-center xl:mb-[32px] animation-right" id="chat">
-        
+        <label for="img-uploader">
+        <svg class="w-9 h-9 text-[#adbac1] cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+      </label>
+        <input class="hidden" type="file" id="img-uploader" accept="image/*">
         <input type="text" id="chat-floating" class="block w-full text-sm mx-2 text-white bg-[#2a3942] border-0  appearance-none  focus:outline-none focus:ring-0  peer rounded-xl" placeholder=" " />
-        <label for="chat-floating" class="absolute pointer-events-none text-[#82929b] duration-500 transform  left-10 top-4.3 z-10 origin-[0] peer-focus:start-0      peer-focus:translate-x-[120rem]  ">Write a message</label>
+        <label for="chat-floating" class="absolute pointer-events-none text-[#82929b] duration-500 transform  left-14 top-4.3 z-10 origin-[0] peer-focus:start-0      peer-focus:translate-x-[120rem]  ">Write a message</label>
         <div id="sendMessage" class=" cursor-pointer mr-2">
         <svg class="w-9 h-9 text-[#adbac1]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal"><path d="m3 3 3 9-3 9 19-9Z"/><path d="M6 12h16"/></svg> 
        </div>
@@ -74,11 +77,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="whatsapp.js"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
 
-  <script>
-    lucide.createIcons();
-  </script>
   
 </body>
 </html>

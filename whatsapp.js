@@ -9,29 +9,30 @@ const $chat = $("#chat");
 const $divHeader = $("#header-div");
 const $inputChat = $("#chat-floating");
 const $sendMessage = $("#sendMessage");
+const $imgUploader = $("#img-uploader");
 
 //////////////////////////////CONTACTS LOGIC///////////////////////////////////////
 let chatMessages = null;
 let users = [];
 var stompClient = null;
-var url = "https://mindqubewhatsapp.onrender.com/webhook/users";
-fetch(url, {
-  method: "GET",
-})
-  .then((res) => res.json())
-  .then((res) => {
-    console.log("im fetch res", res);
-    return res;
-  })
-  .then((res) =>
-    res ? sortmessages(res) : console.log("empty fetch useEffect")
-  )
-  .then((res) => (users = res))
-  .then((res) => setContactsList(res))
+var url = "https://wa.mindqube.com/webhook/users";
+// fetch(url, {
+//   method: "GET",
+// })
+//   .then((res) => res.json())
+//   .then((res) => {
+//     console.log("im fetch res", res);
+//     return res;
+//   })
+//   .then((res) =>
+//     res ? sortmessages(res) : console.log("empty fetch useEffect")
+//   )
+//   .then((res) => (users = res))
+//   .then((res) => setContactsList(res))
 
-  .catch((error) => console.error("Error:", error));
+//   .catch((error) => console.error("Error:", error));
 
-console.log("soy users", users);
+// console.log("soy users", users);
 
 let users2 = [
   {
@@ -847,7 +848,7 @@ const setMessageBodyChat = (e) => {
   if (e.image_type) {
     return `
         <div class="max-w-[20rem]">
-        <img src="https://mindqubewhatsapp.onrender.com/chat/image?id=${
+        <img src="https://wa.mindqube.com/chat/image?id=${
           e.whatsapp_id
         }" class="max-w-[20rem] max-h-[20rem] w-[20rem]" alt="">
          <span class="py-1">${e.message ? e.message : ""}</span>
@@ -906,7 +907,7 @@ const setBodyChat = (user) => {
 
 const sendMessage = () => {
   if (!$inputChat.value || !chatMessages.phone) return;
-  var url = "https://mindqubewhatsapp.onrender.com/chat/reenviar";
+  var url = "https://wa.mindqube.com/chat/reenviar";
   var data = { message: $inputChat.value, phoneNumber: chatMessages.phone };
 
   fetch(url, {
@@ -943,6 +944,37 @@ const saveMindqubeMessage = (payload) => {
   });
   setContactsList(users);
 };
+
+$imgUploader.addEventListener("change", async (e) => {
+  // console.log(e);
+  const file = e.target.files[0];
+  let formData = new FormData();
+  formData.append("image", file);
+  console.log("soy form data", formData);
+  const ImageUrl = "http://localhost:443/chat/image?id=1";
+  if (file) {
+    fetch(ImageUrl, {
+      method: "POST",
+      body: formData,
+
+      // headers: {
+      //   'Content-Type': 'multipart/form-data'
+      // },
+    })
+      // .then((res) => {
+      //   console.log("im fetch res", res);
+      //   return res;
+      // })
+      // .then((res) => res.json())
+      // .then((res) =>
+      //   res
+      //     ? saveMindqubeMessage(res)
+      //     : console.log("empty fetch to chat/reenviar")
+      // )
+      .catch((error) => console.error("Error:", error));
+  }
+  // Send to cloudianry
+});
 
 //////////////////////WEBSOCKET///////////////////////////////
 const onConnected = () => {
@@ -1013,14 +1045,14 @@ const onError = (err) => {
 };
 
 const connect = () => {
-  let Sock = new SockJS("https://mindqubewhatsapp.onrender.com/ws");
+  let Sock = new SockJS("https://wa.mindqube.com/ws");
   console.log("im sock", Sock);
   stompClient = Stomp.over(Sock);
   stompClient.connect({}, onConnected, onError);
   //event.preventDefault();
 };
 connect();
-//setContactsList(users2);
+setContactsList(users2);
 const scrollDown = () => {
   $bodyMessages.scrollTop = $bodyMessages.scrollHeight;
   console.log("scrolling");
