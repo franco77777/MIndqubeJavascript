@@ -16,23 +16,23 @@ let chatMessages = null;
 let users = [];
 var stompClient = null;
 var url = "https://wa.mindqube.com/webhook/users";
-// fetch(url, {
-//   method: "GET",
-// })
-//   .then((res) => res.json())
-//   .then((res) => {
-//     console.log("im fetch res", res);
-//     return res;
-//   })
-//   .then((res) =>
-//     res ? sortmessages(res) : console.log("empty fetch useEffect")
-//   )
-//   .then((res) => (users = res))
-//   .then((res) => setContactsList(res))
+fetch(url, {
+  method: "GET",
+})
+  .then((res) => res.json())
+  .then((res) => {
+    console.log("im fetch res", res);
+    return res;
+  })
+  .then((res) =>
+    res ? sortmessages(res) : console.log("empty fetch useEffect")
+  )
+  .then((res) => (users = res))
+  .then((res) => setContactsList(res))
 
-//   .catch((error) => console.error("Error:", error));
+  .catch((error) => console.error("Error:", error));
 
-// console.log("soy users", users);
+console.log("soy users", users);
 
 let users2 = [
   {
@@ -849,7 +849,7 @@ const setMessageBodyChat = (e) => {
     return `
         <div class="max-w-[20rem]">
         <img src="https://wa.mindqube.com/chat/image?id=${
-          e.whatsapp_id
+          e.id
         }" class="max-w-[20rem] max-h-[20rem] w-[20rem]" alt="">
          <span class="py-1">${e.message ? e.message : ""}</span>
         
@@ -951,7 +951,7 @@ $imgUploader.addEventListener("change", async (e) => {
   let formData = new FormData();
   formData.append("image", file);
   console.log("soy form data", formData);
-  const ImageUrl = "http://localhost:443/chat/image?id=1";
+  const ImageUrl = `https://wa.mindqube.com/chat/image?id=${chatMessages.id}`;
   if (file) {
     fetch(ImageUrl, {
       method: "POST",
@@ -961,18 +961,20 @@ $imgUploader.addEventListener("change", async (e) => {
       //   'Content-Type': 'multipart/form-data'
       // },
     })
-      // .then((res) => {
-      //   console.log("im fetch res", res);
-      //   return res;
-      // })
-      // .then((res) => res.json())
-      // .then((res) =>
-      //   res
-      //     ? saveMindqubeMessage(res)
-      //     : console.log("empty fetch to chat/reenviar")
-      // )
+      .then((res) => {
+        console.log("im fetch res", res);
+        return res;
+      })
+      .then((res) => res.json())
+      .then((res) =>
+        res
+          ? saveMindqubeMessage(res)
+          : console.log("empty fetch to chat/reenviar")
+      )
       .catch((error) => console.error("Error:", error));
+    console.log("image sent");
   }
+  event.preventDefault();
   // Send to cloudianry
 });
 
@@ -1052,7 +1054,7 @@ const connect = () => {
   //event.preventDefault();
 };
 connect();
-setContactsList(users2);
+//setContactsList(users2);
 const scrollDown = () => {
   $bodyMessages.scrollTop = $bodyMessages.scrollHeight;
   console.log("scrolling");
